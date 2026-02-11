@@ -2,7 +2,9 @@
  * @title: VS Material
  * A sleek VS Code-inspired material theme for CubeCoders AMP
  *
- * Created by MsVoxxie | v1.0 | 11/02/2026 | AMP 2.6.x.x
+ * Created by MsVoxxie
+ * v1.0 | 11/02/2026 | AMP 2.6.x.x - Initial Creation
+ * v1.1 | 11/02/2026 | AMP 2.6.x.x - Fixed mobile responsiveness
  */
 
 /* ═══════════════════════════════════════════════════════════════
@@ -129,15 +131,15 @@ body #tab_currentuser span.bgRed {
 	background: var(--vscode-bg-dark);
 	border-right: 1px solid var(--vscode-border);
 }
+.sideItemList {
+	box-shadow: var(--shadow-lg);
+}
 #loginContainer > #userInfo,
 #sideMenuContainer > #userInfo,
 .sideItemList > #userInfo {
 	background-color: var(--vscode-bg-medium);
 	color: var(--vscode-text-secondary);
-	border-radius: var(--radius-lg);
-	margin: 8px;
-	padding: 12px;
-	box-shadow: var(--shadow-sm);
+	border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 #loginContainer > #loginLogo img,
 #sideMenuContainer > #loginLogo img,
@@ -438,9 +440,6 @@ a:visited {
 #sideMenu a {
 	font-size: 100%;
 	color: var(--vscode-text-secondary);
-	border-radius: var(--radius-sm);
-	margin: 1px 4px;
-	padding: 5px 12px;
 }
 #sideMenu a:active,
 #sideMenu a:hover {
@@ -448,10 +447,9 @@ a:visited {
 	background-color: var(--vscode-bg-hover);
 }
 #sideMenu a.selected {
-	color: #ffffff;
+	color: var(--vscode-accent);
 	background-color: var(--vscode-bg-active);
-	border-left: none !important;
-	box-shadow: inset 3px 0 0 0 var(--vscode-accent);
+	box-shadow: inset 2px 0px 0 var(--vscode-accent);
 }
 #sideMenu a.hasNotice {
 	background-color: rgba(241, 76, 76, 0.1);
@@ -563,7 +561,7 @@ input.searchBox:focus-visible {
 	align-items: center;
 	box-shadow: var(--shadow-inset);
 }
-#topSearchBox[style*="inline-block"] {
+#topSearchBox[style*='inline-block'] {
 	display: inline-flex !important;
 }
 #topSearchBox input.searchBox {
