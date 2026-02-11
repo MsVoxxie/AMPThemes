@@ -1,0 +1,1002 @@
+/**
+ * @title: VS Material
+ * A sleek VS Code-inspired material theme for CubeCoders AMP
+ *
+ * Created by MsVoxxie | v1.0 | 11/02/2026 | AMP 2.6.x.x
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   CSS Variables - VS Code Dark Theme Palette
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+	--vscode-bg-darkest: #1e1e1e;
+	--vscode-bg-dark: #252526;
+	--vscode-bg-medium: #2d2d30;
+	--vscode-bg-light: #3c3c3c;
+	--vscode-bg-hover: #404040;
+	--vscode-bg-active: #094771;
+	--vscode-accent: #0078d4;
+	--vscode-accent-hover: #1a8cff;
+	--vscode-accent-secondary: #4fc3f7;
+	--vscode-success: #4ec9b0;
+	--vscode-warning: #dcdcaa;
+	--vscode-error: #f14c4c;
+	--vscode-info: #75beff;
+	--vscode-text-primary: #cccccc;
+	--vscode-text-secondary: #9d9d9d;
+	--vscode-text-muted: #6d6d6d;
+	--vscode-border: #3c3c3c;
+	--vscode-border-light: #4d4d4d;
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+	--shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+	--transition-fast: 0.15s ease;
+	--transition-normal: 0.25s ease;
+	--transition-slow: 0.4s ease;
+	--radius-sm: 4px;
+	--radius-md: 6px;
+	--radius-lg: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Global Transitions
+   ═══════════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+	transition:
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast),
+		color var(--transition-fast),
+		opacity var(--transition-fast),
+		transform var(--transition-fast);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════════════════ */
+.bodyTab,
+.tabHeaderContainer,
+body {
+	background-color: var(--vscode-bg-darkest);
+	color: var(--vscode-text-primary);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+.bodyTab .AppStatus,
+.tabHeaderContainer .AppStatus,
+body .AppStatus {
+	color: var(--vscode-text-secondary);
+	text-shadow: none;
+}
+.bodyTab .tabHeader:hover,
+.tabHeaderContainer .tabHeader:hover,
+body .tabHeader:hover {
+	background-color: var(--vscode-bg-hover);
+	color: var(--vscode-text-primary);
+}
+.bodyTab .tabHeader.active,
+.bodyTab .tabHeader:active,
+.tabHeaderContainer .tabHeader.active,
+.tabHeaderContainer .tabHeader:active,
+body .tabHeader.active,
+body .tabHeader:active {
+	background-color: var(--vscode-bg-medium);
+	border-bottom: 2px solid var(--vscode-accent) !important;
+}
+.bodyTab .tabHeader.active:hover,
+.bodyTab .tabHeader:active:hover,
+.tabHeaderContainer .tabHeader.active:hover,
+.tabHeaderContainer .tabHeader:active:hover,
+body .tabHeader.active:hover,
+body .tabHeader:active:hover {
+	background-color: var(--vscode-bg-hover);
+	border-bottom: 2px solid var(--vscode-accent-hover) !important;
+	color: var(--vscode-text-primary);
+}
+.bodyTab #tab_currentuser span.bgRed,
+.tabHeaderContainer #tab_currentuser span.bgRed,
+body #tab_currentuser span.bgRed {
+	background-color: var(--vscode-error);
+	border: none;
+	padding: 2px 8px;
+	border-radius: 10px;
+	color: #ffffff;
+	font-size: 0.85em;
+	font-weight: 500;
+	box-shadow: var(--shadow-sm);
+}
+#barTop {
+	background-color: var(--vscode-bg-dark);
+	box-shadow: var(--shadow-sm);
+}
+.tabHeaderContainer {
+	border-bottom: 1px solid var(--vscode-border);
+	padding-top: 0;
+	background-color: var(--vscode-bg-dark);
+}
+.tabHeaderContainer .tabHeader.active {
+	box-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Sidebar & Login
+   ═══════════════════════════════════════════════════════════════ */
+#loginContainer,
+#sideMenuContainer,
+.sideItemList {
+	background: var(--vscode-bg-dark);
+	border-right: 1px solid var(--vscode-border);
+}
+#loginContainer > #userInfo,
+#sideMenuContainer > #userInfo,
+.sideItemList > #userInfo {
+	background-color: var(--vscode-bg-medium);
+	color: var(--vscode-text-secondary);
+	border-radius: var(--radius-lg);
+	margin: 8px;
+	padding: 12px;
+	box-shadow: var(--shadow-sm);
+}
+#loginContainer > #loginLogo img,
+#sideMenuContainer > #loginLogo img,
+.sideItemList > #loginLogo img {
+	background-color: transparent;
+	padding: 16px;
+	margin: 0;
+	border-radius: var(--radius-md);
+	opacity: 0.9;
+	transition: opacity var(--transition-normal);
+}
+#loginContainer > #loginLogo img:hover,
+#sideMenuContainer > #loginLogo img:hover,
+.sideItemList > #loginLogo img:hover {
+	opacity: 1;
+}
+#loginContainer .menuTitle,
+#sideMenuContainer .menuTitle,
+.sideItemList .menuTitle {
+	color: var(--vscode-text-muted);
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	font-size: 0.75em;
+	padding: 12px 16px 12px 16px;
+	margin: 0 0 8px 0;
+	border-bottom: 2px solid var(--vscode-accent);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+	position: relative;
+}
+#loginContainer #loginForm input {
+	background-color: var(--vscode-bg-light);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-sm);
+}
+.subMenuWell {
+	background: var(--vscode-bg-dark);
+	border-top: 1px solid var(--vscode-border);
+}
+.subMenuWell .menuTitle {
+	color: var(--vscode-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Server Groups & Instances
+   ═══════════════════════════════════════════════════════════════ */
+.ServerGroupContainer .ServerGroup.Online {
+	background-color: var(--vscode-bg-dark);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-md);
+	margin-bottom: 16px;
+}
+.ServerGroupContainer .ServerGroup.Online .ServerGroupHeader {
+	background-color: var(--vscode-bg-medium);
+	margin: 0;
+	padding: 16px;
+	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+	border-bottom: 1px solid var(--vscode-border);
+}
+.ServerGroupContainer .ServerGroup.Online .ServerGroupHeader .ServerGroupName {
+	padding-top: 0;
+	font-weight: 600;
+}
+.ServerGroupContainer .ServerGroup.Online .ServerGroupHeader .SystemInfo {
+	right: 16px;
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList {
+	margin: 0;
+	padding: 12px;
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryImage.Blur.Offline {
+	-webkit-filter: grayscale(1) brightness(0.3) blur(8px);
+	filter: grayscale(1) brightness(0.3) blur(8px);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryImage.Offline {
+	-webkit-filter: grayscale(1) brightness(0.4);
+	filter: grayscale(1) brightness(0.4);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.NewServerEntry {
+	background-color: var(--vscode-bg-medium);
+	border: 1px dashed var(--vscode-border-light);
+	border-radius: var(--radius-md);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.NewServerEntry:hover {
+	border-color: var(--vscode-accent);
+	background-color: var(--vscode-bg-light);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.NewServerEntry span {
+	color: var(--vscode-accent);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.statusOffline {
+	border-left: 3px solid var(--vscode-text-muted);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.statusBusy {
+	border-left: 3px solid var(--vscode-warning);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.statusNotice {
+	border-left: 3px solid var(--vscode-info);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.statusRunning {
+	border-left: 3px solid var(--vscode-success);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry.statusFail {
+	border-left: 3px solid var(--vscode-error);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgInfo {
+	background-color: var(--vscode-info);
+	border: none;
+	border-radius: var(--radius-sm);
+}
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGreen {
+	background-color: var(--vscode-success);
+	border: none;
+	color: var(--vscode-bg-darkest);
+	font-weight: 600;
+	text-shadow: none;
+	border-radius: var(--radius-sm);
+}
+.ServerGroupContainer .ServerGroup .ServerGroupHeader {
+	text-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Buttons
+   ═══════════════════════════════════════════════════════════════ */
+.button,
+button {
+	border: 1px solid var(--vscode-border);
+	background-color: var(--vscode-bg-light);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-sm);
+	font-weight: 500;
+}
+.button:hover,
+button:hover {
+	background-color: var(--vscode-bg-hover);
+	border-color: var(--vscode-border-light);
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-md);
+}
+.button:active,
+button:active {
+	transform: translateY(0);
+	box-shadow: var(--shadow-sm);
+}
+.button#loginButton,
+button#loginButton {
+	background-color: var(--vscode-accent);
+	border: none;
+	color: #ffffff;
+	font-weight: 600;
+	padding: 10px 24px;
+	border-radius: var(--radius-md);
+}
+.button#loginButton:hover,
+button#loginButton:hover {
+	background-color: var(--vscode-accent-hover);
+}
+.button.disabled,
+button.disabled {
+	border: 1px solid var(--vscode-border);
+	background-color: var(--vscode-bg-medium);
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+.button.disabled:hover,
+button.disabled:hover {
+	background-color: var(--vscode-bg-medium);
+	transform: none;
+	box-shadow: var(--shadow-sm);
+}
+.contextMenu .flexButtonGroup .buttonListSeparator {
+	border-bottom: 1px solid var(--vscode-border);
+}
+.well.info {
+	border: 1px solid var(--vscode-accent);
+	border-radius: var(--radius-md);
+	background-color: rgba(0, 120, 212, 0.1);
+}
+.well.info .mat-icon {
+	color: var(--vscode-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Links
+   ═══════════════════════════════════════════════════════════════ */
+a {
+	color: var(--vscode-accent-secondary);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--vscode-accent-hover);
+	text-decoration: underline;
+}
+a:visited {
+	color: var(--vscode-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Icon Buttons
+   ═══════════════════════════════════════════════════════════════ */
+.iconButton,
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray,
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo {
+	background-color: var(--vscode-bg-light);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-sm);
+}
+.iconButton.toggled,
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray.toggled,
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo.toggled {
+	background-color: var(--vscode-accent);
+	border-color: var(--vscode-accent);
+	color: #ffffff;
+}
+.iconButton:hover,
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray:hover,
+.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo:hover {
+	background-color: var(--vscode-bg-hover);
+	border-color: var(--vscode-border-light);
+}
+.ServerEntryActions .iconButton {
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-sm);
+	margin: 0 2px;
+}
+.ServerEntryActions .iconButton:nth-of-type(5) {
+	border-left: 1px solid var(--vscode-border);
+	border-right: 1px solid var(--vscode-border);
+}
+.ServerEntryActions .iconButton.bgRed {
+	background-color: var(--vscode-error);
+	border-color: var(--vscode-error);
+}
+.ServerEntryActions .iconButton.bgRed:hover {
+	background-color: #d32f2f;
+	border-color: #d32f2f;
+}
+.ServerEntryActions .iconButton.bgGreen {
+	background-color: var(--vscode-success);
+	border-color: var(--vscode-success);
+}
+.ServerEntryActions .iconButton.bgGreen:hover {
+	background-color: #3da892;
+	border-color: #3da892;
+}
+#currentSessionsTable .icon {
+	background-color: var(--vscode-bg-light);
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Status Colors
+   ═══════════════════════════════════════════════════════════════ */
+.bgBlue,
+.bgInfo,
+.bgPink,
+.bgPurple {
+	background-color: var(--vscode-accent);
+	border: none;
+	border-radius: var(--radius-sm);
+}
+.bgBlue:hover,
+.bgInfo:hover,
+.bgPink:hover,
+.bgPurple:hover {
+	background-color: var(--vscode-accent-hover);
+}
+.bgAmber {
+	background-color: var(--vscode-warning);
+	border: none;
+	color: var(--vscode-bg-darkest);
+	border-radius: var(--radius-sm);
+}
+.bgAmber:hover {
+	background-color: #e8e8b8;
+}
+.itemTag {
+	background-color: var(--vscode-accent);
+	color: #ffffff;
+	border-radius: 12px;
+	padding: 2px 10px;
+	font-size: 0.85em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Main Body
+   ═══════════════════════════════════════════════════════════════ */
+#mainBody {
+	background: var(--vscode-bg-darkest);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Side Menu
+   ═══════════════════════════════════════════════════════════════ */
+#sideMenu a {
+	font-size: 100%;
+	color: var(--vscode-text-secondary);
+	border-radius: var(--radius-sm);
+	margin: 1px 4px;
+	padding: 5px 12px;
+}
+#sideMenu a:active,
+#sideMenu a:hover {
+	color: var(--vscode-text-primary);
+	background-color: var(--vscode-bg-hover);
+}
+#sideMenu a.selected {
+	color: #ffffff;
+	background-color: var(--vscode-bg-active);
+	border-left: none !important;
+	box-shadow: inset 3px 0 0 0 var(--vscode-accent);
+}
+#sideMenu a.hasNotice {
+	background-color: rgba(241, 76, 76, 0.1);
+}
+#sideMenu a.hasNotice:hover {
+	color: var(--vscode-text-primary);
+}
+#sideMenu a.info .subtitle,
+#sideMenu a.info .warn {
+	color: var(--vscode-warning);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Form Inputs
+   ═══════════════════════════════════════════════════════════════ */
+.popupTrigger,
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='text'],
+input[type='url'],
+select,
+textarea {
+	background-color: var(--vscode-bg-light);
+	color: var(--vscode-text-primary);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-sm);
+	padding: 8px 12px;
+	box-shadow: var(--shadow-inset);
+}
+.popupTrigger::-webkit-input-placeholder,
+input[type='email']::-webkit-input-placeholder,
+input[type='number']::-webkit-input-placeholder,
+input[type='password']::-webkit-input-placeholder,
+input[type='text']::-webkit-input-placeholder,
+input[type='url']::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+.popupTrigger:-ms-input-placeholder,
+input[type='email']:-ms-input-placeholder,
+input[type='number']:-ms-input-placeholder,
+input[type='password']:-ms-input-placeholder,
+input[type='text']:-ms-input-placeholder,
+input[type='url']:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+.popupTrigger::-ms-input-placeholder,
+input[type='email']::-ms-input-placeholder,
+input[type='number']::-ms-input-placeholder,
+input[type='password']::-ms-input-placeholder,
+input[type='text']::-ms-input-placeholder,
+input[type='url']::-ms-input-placeholder,
+select::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+.popupTrigger::placeholder,
+input[type='email']::placeholder,
+input[type='number']::placeholder,
+input[type='password']::placeholder,
+input[type='text']::placeholder,
+input[type='url']::placeholder,
+select::placeholder,
+textarea::placeholder {
+	color: var(--vscode-text-muted);
+}
+.popupTrigger:focus,
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
+select:focus,
+textarea:focus,
+.popupTrigger:focus-visible,
+input[type='email']:focus-visible,
+input[type='number']:focus-visible,
+input[type='password']:focus-visible,
+input[type='text']:focus-visible,
+input[type='url']:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: none;
+	border-color: var(--vscode-accent);
+	box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
+}
+input.searchBox {
+	background-color: var(--vscode-bg-light);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-md);
+	padding-left: 12px;
+	box-shadow: none;
+}
+input.searchBox:focus,
+input.searchBox:focus-visible {
+	box-shadow: none;
+	outline: none;
+	border-color: var(--vscode-accent);
+}
+#topSearchBox {
+	background-color: var(--vscode-bg-light) !important;
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	align-items: center;
+	box-shadow: var(--shadow-inset);
+}
+#topSearchBox[style*="inline-block"] {
+	display: inline-flex !important;
+}
+#topSearchBox input.searchBox {
+	border: none;
+	background-color: transparent !important;
+}
+#topSearchBox input.searchBox:focus,
+#topSearchBox input.searchBox:focus-visible {
+	border: none;
+}
+#topSearchBox .mat-icon,
+#topSearchBox mat-icon {
+	color: var(--vscode-text-muted);
+	background-color: transparent;
+}
+input.searchBox ::-webkit-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+input.searchBox :-ms-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+input.searchBox ::-ms-input-placeholder {
+	color: var(--vscode-text-muted);
+}
+input.searchBox ::placeholder {
+	color: var(--vscode-text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Checkboxes
+   ═══════════════════════════════════════════════════════════════ */
+input[type='checkbox'] + span,
+input[type='checkbox'][indeterminate] + span {
+	background-color: var(--vscode-bg-light);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-sm);
+}
+input[type='checkbox'] + span:after,
+input[type='checkbox'][indeterminate] + span:after {
+	background-color: var(--vscode-text-muted);
+	border-radius: 2px;
+}
+input[type='checkbox']:checked + span,
+input[type='checkbox'][indeterminate]:checked + span {
+	background-color: var(--vscode-accent);
+	border-color: var(--vscode-accent);
+}
+input[type='checkbox']:checked + span:after,
+input[type='checkbox'][indeterminate]:checked + span:after {
+	background-color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Search Results
+   ═══════════════════════════════════════════════════════════════ */
+#searchResults {
+	color: var(--vscode-text-primary);
+	background-color: var(--vscode-bg-dark);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-lg);
+}
+#searchResults .searchResultCategory .searchResultCategoryInfo {
+	background-color: var(--vscode-bg-medium);
+	border-bottom: 1px solid var(--vscode-border);
+}
+#searchResults .searchResult {
+	border-bottom: 1px solid var(--vscode-border);
+	padding: 12px;
+	font-size: 0.95em;
+}
+#searchResults .searchResult:hover {
+	background-color: var(--vscode-bg-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Settings
+   ═══════════════════════════════════════════════════════════════ */
+.settingsGroup .groupBody .settingContainer {
+	background-color: var(--vscode-bg-medium);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-md);
+	margin-bottom: 8px;
+	padding: 16px;
+}
+.settingsGroup .groupBody .settingContainer .settingWarning {
+	color: var(--vscode-warning);
+	margin-top: -32px;
+}
+.settingsGroup .groupBody .settingInfo {
+	color: var(--vscode-info);
+}
+.settingsGroup .groupBody .settingLabel .settingDescription {
+	color: var(--vscode-text-secondary);
+}
+.settingsGroup .groupBody .settingLabel .settingDescription a {
+	color: var(--vscode-accent-secondary);
+}
+.settingsGroup .groupBody .settingLabel .settingDescription a:hover {
+	color: var(--vscode-accent-hover);
+}
+.settingsGroup .groupBody .settingLabel span.inputFieldSuffix {
+	color: var(--vscode-text-muted);
+}
+.settingsGroup .groupBody .settingLabel textarea {
+	max-width: 100%;
+}
+.provisionSettingContainer .provisionSetting .permNodeDescription,
+.provisionSettingContainer .provisionSetting .settingDescription,
+.sideItemData .provisionSetting .permNodeDescription,
+.sideItemData .provisionSetting .settingDescription {
+	color: var(--vscode-text-secondary);
+}
+.provisionSettingContainer .treeContainer,
+.sideItemData .treeContainer {
+	margin-bottom: 8px;
+}
+.provisionSettingContainer hr,
+.sideItemData hr {
+	border-color: var(--vscode-border);
+	opacity: 0.5;
+}
+thead {
+	border-bottom: 1px solid var(--vscode-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Action Buttons
+   ═══════════════════════════════════════════════════════════════ */
+#statusActions button.bgGreen,
+#tab_ADSModule_Datastores button.bgGreen,
+#tab_auditlog button.bgGreen,
+#tab_LocalFileBackupPlugin_Backups button.bgGreen,
+#tab_schedule button.bgGreen,
+.modalbuttons button.bgGreen,
+.modalpanel button.bgGreen,
+.wizardTab .wizardContents button.bgGreen {
+	padding: 8px 16px;
+	background-color: var(--vscode-success);
+	border: none;
+	color: var(--vscode-bg-darkest);
+	font-weight: 600;
+	border-radius: var(--radius-sm);
+}
+#statusActions button.bgGreen:hover,
+#tab_ADSModule_Datastores button.bgGreen:hover,
+#tab_auditlog button.bgGreen:hover,
+#tab_LocalFileBackupPlugin_Backups button.bgGreen:hover,
+#tab_schedule button.bgGreen:hover,
+.modalbuttons button.bgGreen:hover,
+.modalpanel button.bgGreen:hover,
+.wizardTab .wizardContents button.bgGreen:hover {
+	background-color: #3da892;
+	transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Backups List
+   ═══════════════════════════════════════════════════════════════ */
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing:nth-child(odd) {
+	background-color: var(--vscode-bg-medium);
+}
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing:hover {
+	background-color: var(--vscode-bg-hover);
+}
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing.selected,
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing:active {
+	background-color: var(--vscode-bg-active);
+}
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing td:first-child {
+	padding-left: 12px;
+}
+#tab_LocalFileBackupPlugin_Backups #backupsList .backupListing td:last-child {
+	padding-right: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Wizard
+   ═══════════════════════════════════════════════════════════════ */
+.wizardTab .wizardContents {
+	background-color: var(--vscode-bg-dark);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+}
+.wizardTab .wizardContents h2 {
+	background-color: var(--vscode-bg-medium);
+	border-bottom: 1px solid var(--vscode-border);
+	padding: 16px;
+	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.wizardTab .wizardContents .containerWarning button.bgInfo {
+	background-color: var(--vscode-info);
+	border: none;
+}
+.wizardTab .wizardContents .containerWarning button.bgInfo:hover {
+	background-color: #5ba8e5;
+}
+.wizardTab .wizardContents .containerWarning.required {
+	background-color: rgba(241, 76, 76, 0.1);
+	border: 1px solid var(--vscode-error);
+	border-radius: var(--radius-md);
+}
+.wizardTab .wizardContents.wizardPopup > .iconButton {
+	border: 1px solid var(--vscode-border) !important;
+}
+#tabInfo h2 {
+	margin: 8px 0;
+	font-size: 1.5em;
+	font-weight: 600;
+	color: var(--vscode-text-primary);
+}
+#tabInfo h4 {
+	color: var(--vscode-text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Schedule
+   ═══════════════════════════════════════════════════════════════ */
+.scheduleTriggerInfo {
+	border: 1px solid var(--vscode-border);
+	background-color: var(--vscode-bg-dark);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+}
+.scheduleTriggerInfo .scheduleTriggerDescription {
+	background-color: var(--vscode-bg-medium);
+	border-radius: var(--radius-md) var(--radius-md) 0 0;
+	border-bottom: 1px solid var(--vscode-border);
+}
+.scheduleTriggerInfo .scheduleTriggerDescription .scheduleTriggerHeaderItem .scheduleHeader {
+	color: var(--vscode-text-muted);
+}
+.scheduleTriggerInfo .scheduleTriggerTask {
+	border-color: var(--vscode-border);
+}
+.scheduleTriggerInfo .scheduleTriggerTask .iconButton:hover {
+	background-color: var(--vscode-bg-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Split View & Item List
+   ═══════════════════════════════════════════════════════════════ */
+.splitViewInfo.splitViewInfo {
+	background-color: var(--vscode-bg-darkest);
+}
+.itemList .item.selected {
+	border-right: 3px solid var(--vscode-accent);
+	background-color: var(--vscode-bg-active);
+	color: #ffffff;
+}
+.itemList .item:hover {
+	background-color: var(--vscode-bg-hover);
+	color: var(--vscode-text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   File Manager
+   ═══════════════════════════════════════════════════════════════ */
+#fileManagerHeader .fmPathSegment {
+	background-color: var(--vscode-bg-medium);
+	border-radius: var(--radius-sm);
+	margin-right: 4px;
+}
+#fileManagerHeader .fmPathSegment:after {
+	border-left: 10px solid var(--vscode-bg-medium);
+}
+#fileManagerHeader .fmPathSegment:nth-child(2n) {
+	background-color: var(--vscode-bg-light);
+}
+#fileManagerHeader .fmPathSegment:nth-child(2n):after {
+	border-left: 10px solid var(--vscode-bg-light);
+}
+#fileManagerHeader .fmPathSegment:after,
+#fileManagerHeader .fmPathSegment:nth-child(2n):after {
+	left: 9px;
+}
+#fileManagerHeader .fmPathSegment:hover,
+#fileManagerHeader .fmPathSegment:nth-child(2n):hover {
+	background-color: var(--vscode-accent);
+	color: #ffffff;
+}
+#fileManagerHeader .fmPathSegment:hover:after,
+#fileManagerHeader .fmPathSegment:nth-child(2n):hover:after {
+	border-left: 10px solid var(--vscode-accent);
+}
+#fileManagerList {
+	background-color: var(--vscode-bg-medium);
+	border-radius: var(--radius-md);
+}
+#fileManagerList .fileManagerEntry .fileEntrySubtitle {
+	color: var(--vscode-text-muted);
+}
+#fileManagerList .fileManagerEntry.selected {
+	background-color: var(--vscode-bg-active);
+}
+#fileManagerList .fileManagerEntry:hover {
+	background-color: var(--vscode-bg-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Console
+   ═══════════════════════════════════════════════════════════════ */
+.consoleEntry .consoleName {
+	color: var(--vscode-accent-secondary);
+}
+.consoleEntry .consoleName:hover {
+	color: var(--vscode-accent-hover);
+}
+.consoleEntry .consoleTimestamp {
+	color: var(--vscode-text-muted);
+	font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Datastore
+   ═══════════════════════════════════════════════════════════════ */
+.datastoreContainer .datastoreItem {
+	background-color: var(--vscode-bg-dark);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-md);
+	text-shadow: none;
+}
+.datastoreContainer .datastoreItem:hover {
+	border-color: var(--vscode-accent);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+}
+.datastoreContainer .newDatastoreItem {
+	background-color: var(--vscode-bg-medium);
+	border: 2px dashed var(--vscode-border);
+	border-radius: var(--radius-lg);
+}
+.datastoreContainer .newDatastoreItem:hover {
+	border-color: var(--vscode-accent);
+	background-color: var(--vscode-bg-light);
+}
+.datastoreContainer .newDatastoreItem .plusIcon {
+	color: var(--vscode-accent);
+}
+.bodyTab .analyticsSection .sectionHeader .headerControls div.active {
+	color: var(--vscode-accent);
+}
+.permissionDescriptions div .description,
+.permNodeDescription {
+	color: var(--vscode-text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Modal
+   ═══════════════════════════════════════════════════════════════ */
+.modalpanel {
+	background-color: var(--vscode-bg-dark);
+	border: 1px solid var(--vscode-border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
+}
+.modalpanel #modaltitle {
+	background-color: var(--vscode-bg-medium);
+	border-bottom: 1px solid var(--vscode-border);
+	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+	padding: 16px;
+}
+.modalpanel .modalcontents #modalsubtitle {
+	color: var(--vscode-text-primary);
+	font-weight: 600;
+	text-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Notifications
+   ═══════════════════════════════════════════════════════════════ */
+#notificationContainer {
+	background-color: var(--vscode-bg-dark);
+	border-left: 1px solid var(--vscode-border);
+	box-shadow: var(--shadow-lg);
+}
+#notificationContainer .notificationBanner {
+	background-color: var(--vscode-bg-medium);
+	border-bottom: 1px solid var(--vscode-border);
+}
+#notificationContainer .notification {
+	border-bottom: 1px solid var(--vscode-border);
+}
+#notificationContainer .notification:hover {
+	background-color: var(--vscode-bg-hover);
+}
+#notificationContainer .notification .notificationProgessContainer {
+	background-color: var(--vscode-bg-light);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-inset);
+}
+#notificationContainer .notification .notificationProgessContainer .notificationProgressBar {
+	background: linear-gradient(90deg, var(--vscode-accent), var(--vscode-accent-secondary));
+	border-radius: var(--radius-sm);
+	box-shadow: 0 0 10px rgba(0, 120, 212, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Scrollbars (WebKit)
+   ═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: var(--vscode-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--vscode-bg-light);
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--vscode-bg-hover);
+}
+::-webkit-scrollbar-corner {
+	background: var(--vscode-bg-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Responsive Styles
+   ═══════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 660px) {
+	#loginContainer > #loginLogo img {
+		margin: 0;
+		max-width: 88%;
+	}
+}
+@media screen and (min-width: 661px) and (max-width: 1000px) {
+	#loginContainer > #userInfo,
+	#sideMenuContainer > #userInfo,
+	.sideItemList > #userInfo {
+		border-radius: var(--radius-md);
+	}
+}
