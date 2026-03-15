@@ -5,6 +5,7 @@
  * Created by MsVoxxie
  * v1.0 | 11/02/2026 | AMP 2.6.x.x - Initial Creation
  * v1.1 | 11/02/2026 | AMP 2.6.x.x - Fixed mobile responsiveness
+ * v1.1 | 14/03/2026 | AMP 2.6.x.x - Fixed styling overlaps
  */
 
 /* ═══════════════════════════════════════════════════════════════
@@ -266,23 +267,23 @@ body #tab_currentuser span.bgRed {
 /* ═══════════════════════════════════════════════════════════════
    Buttons
    ═══════════════════════════════════════════════════════════════ */
-.button,
-button {
+.button:not(.iconButton),
+button:not(.iconButton) {
 	border: 1px solid var(--vscode-border);
 	background-color: var(--vscode-bg-light);
 	border-radius: var(--radius-sm);
 	box-shadow: var(--shadow-sm);
 	font-weight: 500;
 }
-.button:hover,
-button:hover {
+.button:not(.iconButton):hover,
+button:not(.iconButton):hover {
 	background-color: var(--vscode-bg-hover);
 	border-color: var(--vscode-border-light);
 	transform: translateY(-1px);
 	box-shadow: var(--shadow-md);
 }
-.button:active,
-button:active {
+.button:not(.iconButton):active,
+button:not(.iconButton):active {
 	transform: translateY(0);
 	box-shadow: var(--shadow-sm);
 }
@@ -343,33 +344,24 @@ a:visited {
    Icon Buttons
    ═══════════════════════════════════════════════════════════════ */
 .iconButton,
-.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray,
-.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo {
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray {
 	background-color: var(--vscode-bg-light);
 	border: 1px solid var(--vscode-border);
 	border-radius: var(--radius-sm);
 }
 .iconButton.toggled,
-.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray.toggled,
-.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo.toggled {
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray.toggled {
 	background-color: var(--vscode-accent);
 	border-color: var(--vscode-accent);
 	color: #ffffff;
 }
 .iconButton:hover,
-.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray:hover,
-.ServerGroupContainer .ServerGroup.Online .InstanceList .ServerEntry .ServerEntryInfo .bgInfo:hover {
+.InstanceList .ServerEntry .ServerEntryTop .ServerEntryStatus.bgGray:hover {
 	background-color: var(--vscode-bg-hover);
 	border-color: var(--vscode-border-light);
 }
 .ServerEntryActions .iconButton {
-	border: 1px solid var(--vscode-border);
-	border-radius: var(--radius-sm);
-	margin: 0 2px;
-}
-.ServerEntryActions .iconButton:nth-of-type(5) {
-	border-left: 1px solid var(--vscode-border);
-	border-right: 1px solid var(--vscode-border);
+	border-color: var(--vscode-border);
 }
 .ServerEntryActions .iconButton.bgRed {
 	background-color: var(--vscode-error);
@@ -998,3 +990,4 @@ thead {
 		border-radius: var(--radius-md);
 	}
 }
+
